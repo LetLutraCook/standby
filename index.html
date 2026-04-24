@@ -13,6 +13,7 @@
       place-items: center;
       height: 100vh;
       font-size: 4rem;
+      text-shadow: 0px 2px black;
     }
   </style>
 </head>
@@ -31,9 +32,11 @@
     document.addEventListener('click', function(event) {
       if (dark) {
         time.style.color = "black";
+        time.style.textShadow = "0px 2px black";
         document.body.style.backgroundColor = "white";
       } else {
         time.style.color = "white";
+        time.style.textShadow = "0px 2px white";
         document.body.style.backgroundColor = "black";
       }
 
