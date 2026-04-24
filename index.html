@@ -19,11 +19,22 @@
 
   <script>
     const time = document.getElementById("time");
+    var dark = false;
 
     function updateClock() {
       const timeStr = new Date().toLocaleTimeString();
       time.textContent = timeStr;
     }
+
+    document.addEventListener('click', function(event) {
+      if (dark) {
+        time.style.color = "black";
+        document.style.backgroundColor = "white";
+      } else {
+        time.style.color = "white";
+        document.style.backgroundColor = "black";
+      }
+    });
 
     updateClock(); 
     setInterval(updateClock, 1000);
