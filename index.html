@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+  <title>standby</title>
+</head>
+<body>
+  <p id="time"></p>
+
+  <script>
+    const time = document.getElementById("time");
+
+    function updateClock() {
+      const timeStr = new Date().toLocaleTimeString();
+      time.textContent = timeStr;
+    }
+
+    updateClock(); 
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
