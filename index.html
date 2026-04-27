@@ -7,13 +7,22 @@
       height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       overflow: hidden;
+      background-color: white;
+    }
+    body.dark {
+      background-color: black;
     }
     p {
       display: grid;
       place-items: center;
       height: 100vh;
       font-size: 4rem;
+      color: black;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    p.dark {
+      color: white;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
     }
   </style>
 </head>
@@ -22,7 +31,6 @@
 
   <script>
     const time = document.getElementById("time");
-    var dark = false;
 
     function updateClock() {
       const timeStr = new Date().toLocaleTimeString();
@@ -30,17 +38,8 @@
     }
 
     document.addEventListener('click', function(event) {
-      if (dark) {
-        time.style.color = "black";
-        time.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.3)";
-        document.body.style.backgroundColor = "white";
-      } else {
-        time.style.color = "white";
-        time.style.textShadow = "2px 2px 4px rgba(255, 255, 255, 0.3)";
-        document.body.style.backgroundColor = "black";
-      }
-
-      dark = !dark;
+      time.classList.toggle('dark');
+      document.body.classList.toggle('dark');
     });
 
     updateClock(); 
