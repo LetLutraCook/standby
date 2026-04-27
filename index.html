@@ -31,13 +31,12 @@
 
   <script>
     const time = document.getElementById("time");
-
+    let lastTap = 0;
+    
     function updateClock() {
       const timeStr = new Date().toLocaleTimeString();
       time.textContent = timeStr;
     }
-
-    let lastTap = 0;
 
     document.addEventListener('touchend', (event) => {
       const currentTime = new Date().getTime();
@@ -46,14 +45,17 @@
       if (tapLength < 500 && tapLength > 0) {
         document.documentElement.requestFullscreen()
         event.preventDefault();
+      } else {
+        time.classList.toggle('dark');
+        document.body.classList.toggle('dark');
       }
       lastTap = currentTime;
     });
 
-    document.addEventListener('click', function(event) {
-      time.classList.toggle('dark');
-      document.body.classList.toggle('dark');
-    });
+    /*document.addEventListener('click', function(event) {
+        time.classList.toggle('dark');
+        document.body.classList.toggle('dark');
+    });*/
                               
     updateClock(); 
     setInterval(updateClock, 1000);
