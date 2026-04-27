@@ -44,7 +44,7 @@
       const tapLength = currentTime - lastTap;
     
       if (tapLength < 500 && tapLength > 0) {
-        document.body.requestFullscreen()
+        document.documentElement.requestFullscreen()
         event.preventDefault();
       }
       lastTap = currentTime;
